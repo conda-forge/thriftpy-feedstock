@@ -5,7 +5,7 @@ Home: https://thriftpy.readthedocs.org/
 
 Package license: MIT
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: Pure python implementation of Apache Thrift.
 
@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/thriftpy-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/thriftpy-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/thriftpy-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/thriftpy-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/thriftpy-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/thriftpy-feedstock/branch/master)
