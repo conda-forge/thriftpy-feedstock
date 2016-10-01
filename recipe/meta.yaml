@@ -1,11 +1,15 @@
+{% set name = "thriftpy" %}
+{% set version = "0.3.9" %}
+{% set sha256 = "309e57d97b5bfa01601393ad4f245451e989d6206a59279e56866b264a99796d" %}
+
 package:
-  name: thriftpy
-  version: "0.3.7"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: thriftpy-0.3.7.tar.gz
-  url: https://pypi.python.org/packages/source/t/thriftpy/thriftpy-0.3.7.tar.gz
-  md5: f7bda2f5fe4f6eee0e3fa0949ea231ef
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
