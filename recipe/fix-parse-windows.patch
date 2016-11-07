@@ -1,0 +1,35 @@
+--- thriftpy-0.3.9.orig/thriftpy/parser/parser.py	2016-08-26 10:12:03.000000000 +0100
++++ thriftpy-0.3.9/thriftpy/parser/parser.py	2016-11-07 21:12:00.700778410 +0000
+@@ -11,6 +11,7 @@
+ import os
+ import sys
+ import types
++from os.path import isfile
+ from ply import lex, yacc
+ from .lexer import *  # noqa
+ from .exc import ThriftParserError, ThriftGrammerError
+@@ -484,16 +485,17 @@
+     if not path.endswith('.thrift'):
+         raise ThriftParserError('Path should end with .thrift')
+ 
+-    url_scheme = urlparse(path).scheme
+-    if url_scheme == '':
++    if isfile(path):
+         with open(path) as fh:
+             data = fh.read()
+-    elif url_scheme in ('http', 'https'):
+-        data = urlopen(path).read()
+     else:
+-        raise ThriftParserError('ThriftPy does not support generating module '
+-                                'with path in protocol \'{}\''.format(
+-                                    url_scheme))
++        url_scheme = urlparse(path).scheme
++        if url_scheme in ('http', 'https'):
++            data = urlopen(path).read()
++        else:
++            raise ThriftParserError('ThriftPy does not support generating module '
++                                    'with path in protocol \'{}\''.format(
++                                        url_scheme))
+ 
+     if module_name is not None and not module_name.endswith('_thrift'):
+         raise ThriftParserError('ThriftPy can only generate module with '
