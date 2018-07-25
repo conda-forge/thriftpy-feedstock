@@ -14,10 +14,12 @@ source:
     - fix-parse-windows.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
     - setuptools
     - ply >=3.4,<4.0
