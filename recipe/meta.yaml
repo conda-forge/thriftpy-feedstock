@@ -14,12 +14,16 @@ source:
     - fix-parse-windows.patch
 
 build:
-  number: 0
+  number: 1
+  script: 
+    - python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
-    - setuptools
+    - pip
     - ply >=3.4,<4.0
     # Cython extensions not enabled on windows
     - cython  # [not win]
